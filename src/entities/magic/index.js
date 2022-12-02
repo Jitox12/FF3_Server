@@ -10,8 +10,8 @@ const MagicSchema = new mongoose.Schema(
         damage:{
             type:Number
         },
-        magicType:{type:mongoose.Schema.Types.ObjectId(),  ref:'magicType'},
-        element:{type:mongoose.Schema.Types.ObjectId(), ref:'element'}
+        magicType:{type:mongoose.Schema.Types.ObjectId,  ref:'magicType'},
+        element:{type:mongoose.Schema.Types.ObjectId, ref:'element'}
     },
 
     {

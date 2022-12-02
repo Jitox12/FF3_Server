@@ -9,7 +9,7 @@ const findUserServices = async (req,res) => {
         const {limit, page} = req
         const userList = await User.paginate({},{limit,page})
 
-        return userList
+        res.json(userList).status(200)
     }catch(err){
         handleHttpError(res, 'ERROR_LOGIN_USER')
     }

@@ -7,7 +7,7 @@ const AbilitySchema = new mongoose.Schema(
         name:{
             type:String,
         },
-        element:{type:mongoose.Schema.Types.ObjectId(), ref:'element'},
+        element:{type:mongoose.Schema.Types.ObjectId, ref:'element'},
         damage:{
             type:Number
         },

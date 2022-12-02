@@ -3,20 +3,30 @@ const {tokenSign} = require('../../utils/handleJwt')
 const {handleHttpError} = require('../../utils/handleError')
 const {encrypt} = require('../../utils/handlePassword')
 const User = require('../../entities/user')
+const handleDuplicatedError = require('../../utils/handleDuplicatedError')
 
 const register = async (req,res) => {
+    const user = new User()
+    
     try{
     req = matchedData(req)
-    const passwordHash = await encrypt(req.password)
-    const body = {...req, password: passwordHash}
-    const dataUser = await User.create(body)
-    dataUser.set('password', undefined, {strict:false})
+    
+    const {name,email,password} = req
+    const passwordHash = await encrypt(password)
+    user.name = name
+    user.email = email
+    user.password = passwordHash
 
-    const data = {
-        token:tokenSign(dataUser),
-        user: dataUser
+    const duplicate = await handleDuplicatedError('email',email,User)
+    console.log(duplicate)
+    if(duplicate){
+      handleHttpError(res,'EMAIL_DUPLICATED', 409)
+      return
     }
-    return data
+
+    const dataUser = await user.save()
+    dataUser.set('password', undefined, {strict:false})
+    res.json('USER_REGISTER').status(200)
     
     }catch(err){
         console.log(err)

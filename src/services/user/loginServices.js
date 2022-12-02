@@ -8,10 +8,11 @@ const loginServices = async (req,res) => {
     try{
         req = matchedData(req)
         const user = await User.findOne({email:req.email}).select('password name role email')
+        
         if(!user){
             handleHttpError(res,'USER_NOT_EXISTS',404)
             return
-        }   
+        }
         const hashPassword = user.get('password')
         const check = await compare(req.password, hashPassword)
         if(!check){
@@ -24,10 +25,9 @@ const loginServices = async (req,res) => {
             token:tokenSign(user),
             user
         }
-        return data
+        res.json(data).status(200)
 
     }catch(err){
-        console.log(err)
         handleHttpError(res, 'ERROR_LOGIN_USER')
     }
 }
