@@ -1,26 +1,16 @@
 const Ability = require('../../entities/ability')
 const {matchedData} = require('express-validator')
 const {handleHttpError} = require('../../utils/handleError')
+const handlePaginateConfig = require('../../utils/handlePaginateConfig')
 
 async function findAbilityServices(req,res){
     try{
         req = matchedData(req)
         const {limit, page} = req
+        const values = ['element']
+        const populateConfig = await handlePaginateConfig(values)
 
-        const paginateConf = {
-            populate:{
-                path:'element',
-                select:{
-                    name:1,
-                    _id:0
-                },
-                strictPopulate:false,
-                limit:limit,
-                page:page
-            }
-        }
-
-        const abilityList =  await Ability.paginate({},paginateConf)
+        const abilityList =  await Ability.paginate({},{populate:populateConfig, limit:limit, page:page})
         res.json(abilityList)
                                     
         

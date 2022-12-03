@@ -2,15 +2,15 @@ const mongoose = require('mongoose')
 const mongooseDelete = require('mongoose-delete')
 const mongoosePaginate = require('mongoose-paginate-v2');
 
-const WeaponSchema = new mongoose.Schema(
+const ArmorSchema = new mongoose.Schema(
     {
         name:{
             type:String,
         },
-        damage:{
+        defense:{
             type:Number,
         },
-        defense:{
+        damage:{
             type:Number,
         },
         passiveAbility:{type:mongoose.Schema.Types.ObjectId, ref:'passiveAbilities'},
@@ -26,7 +26,7 @@ const WeaponSchema = new mongoose.Schema(
     }
 )
 
-WeaponSchema.plugin(mongooseDelete, {overrideMethods:'all'})
-WeaponSchema.plugin(mongoosePaginate);
+ArmorSchema.plugin(mongooseDelete, {overrideMethods:'all'})
+ArmorSchema.plugin(mongoosePaginate);
 
-module.exports= mongoose.model('weapons', WeaponSchema)
+module.exports= mongoose.model('armors', ArmorSchema)

@@ -1,15 +1,14 @@
-const MagicType = require('../../entities/magicType')
+const EquipmentType = require('../../entities/equipmentType')
 const {matchedData} = require('express-validator')
 const {handleHttpError} = require('../../utils/handleError')
 
-async function findMagicTypeServices(req,res){
-  
+async function findEquipmentTypeServices(req,res) {
     try{
         req = matchedData(req)
         const {limit,page} = req
 
-        const magicTypeList = await MagicType.paginate({},{limit,page})
-        res.json(magicTypeList)
+        const equipmentTypeList = await EquipmentType.paginate({},{limit,page})
+        res.json(equipmentTypeList)
 
     }catch(err){
         handleHttpError(res,'ERROR_FIND_ANY_ELEMENT',404)
@@ -17,5 +16,5 @@ async function findMagicTypeServices(req,res){
 }
 
 module.exports = {
-    findMagicTypeServices
+    findEquipmentTypeServices
 }
