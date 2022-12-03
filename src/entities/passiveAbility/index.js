@@ -7,7 +7,8 @@ const AbilitySchema = new mongoose.Schema(
         name:{
             type:String,
         },
-        element:{type:mongoose.Schema.Types.ObjectId, ref:'element'},
+        element:{type:mongoose.Schema.Types.ObjectId, ref:'elements'},
+
         damage:{
             type:Number
         },
@@ -25,4 +26,4 @@ const AbilitySchema = new mongoose.Schema(
 AbilitySchema.plugin(mongooseDelete, {overrideMethods:'all'})
 AbilitySchema.plugin(mongoosePaginate);
 
-module.exports= mongoose.model('abilities', AbilitySchema)
+module.exports= mongoose.model('passiveAbilities', AbilitySchema)

@@ -10,9 +10,7 @@ const MagicTypeSchema = new mongoose.Schema(
         img:{
             type:Object,
         }
-        
     },
-
     {
         timestamps:true,
         versionKey:false

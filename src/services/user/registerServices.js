@@ -17,9 +17,8 @@ const register = async (req,res) => {
     user.email = email
     user.password = passwordHash
 
-    const duplicate = await handleDuplicatedError('email',email,User)
-    console.log(duplicate)
-    if(duplicate){
+    const duplicated = await handleDuplicatedError('email',email,User)
+    if(duplicated){
       handleHttpError(res,'EMAIL_DUPLICATED', 409)
       return
     }
@@ -29,7 +28,6 @@ const register = async (req,res) => {
     res.json('USER_REGISTER').status(200)
     
     }catch(err){
-        console.log(err)
         handleHttpError(res,'ERROR_REGISTER_USER')
     }
 }

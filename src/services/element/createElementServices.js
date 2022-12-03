@@ -5,25 +5,24 @@ const {toUpperCaseFirstKey} = require('../../utils/handleUpperCase')
 const handleDuplicatedError = require('../../utils/handleDuplicatedError')
 
 async function createElementServices(req,res){
+  
+    try{
     const element = new Element()
     req = matchedData(req)
     const {name} = req
+   
+    element.name = await toUpperCaseFirstKey(name)
 
-    const upperCaseName = toUpperCaseFirstKey(name)
-    
-    element.name = upperCaseName
-    
-    try{
-    const duplicate  = await handleDuplicatedError('name',element.name,Element)
-    if(duplicate){
+    const duplicated  = await handleDuplicatedError('name',element.name,Element)
+    if(duplicated){
         handleHttpError(res,'DUPLICATED_NAME',409)
         return
     }
         element.save()
-        res.json({message:`${element.name} Created`})
+        res.json({message:`${element.name} CREATED`})
     }catch(err){
         console.log(err);
-        handleHttpError(res)
+        handleHttpError(res,'ERROR_CREATED_ELEMENT',409)
     }
 }
 

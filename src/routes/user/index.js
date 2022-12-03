@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const {validatorLogin, validatorRegister}= require('../../middlewares/validators/user/auth')
 const {validatorFindUsers}= require('../../middlewares/validators/user/findUser')
+
 const {authMiddleware} = require('../../middlewares/session')
 const {checkRole} = require('../../middlewares/role')
 

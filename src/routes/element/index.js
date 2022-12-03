@@ -11,6 +11,6 @@ const {validatorCreateElement} = require('../../middlewares/validators/element/c
 const {validatorFindElements} = require('../../middlewares/validators/element/findElements')
 
 route.post('/create-element',[authMiddleware,checkRole(['admin']), validatorCreateElement], createElementServices)
-route.get('/find-element',[authMiddleware,checkRole(['admin']),validatorFindElements], findElementServices)
+route.get('/find-element',[authMiddleware,checkRole(['user','admin']),validatorFindElements], findElementServices)
 
 module.exports = route

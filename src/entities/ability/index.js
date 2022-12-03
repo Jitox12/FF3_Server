@@ -10,7 +10,7 @@ const AbilitySchema = new mongoose.Schema(
         damage:{
             type:Number,
         },
-        element:{type:mongoose.Schema.Types.ObjectId, ref:'element'},
+        element:{type:mongoose.Schema.Types.ObjectId, ref:'elements'},
         },
     {
         timestamps:true,
