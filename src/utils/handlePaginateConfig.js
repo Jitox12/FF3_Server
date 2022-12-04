@@ -1,7 +1,6 @@
 const handlePaginateConfig = async (values) => {
 
     const populateConfig = values.map((value) => {
-        console.log(value)
         const populate = {
             path:value.toString(),
             select:{

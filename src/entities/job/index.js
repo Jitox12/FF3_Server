@@ -7,10 +7,11 @@ const JobSchema = new mongoose.Schema(
         name:{
             type:String,
         },
-        character:{type:mongoose.Schema.Types.ObjectId, ref:'character'},
-        crystal:{type:mongoose.Schema.Types.ObjectId, ref:'Crystal'},
-        ability:{type:mongoose.Schema.Types.ObjectId, ref:'ability'},
-        
+        character:{type:mongoose.Schema.Types.ObjectId, ref:'characters'},
+        crystal:{type:mongoose.Schema.Types.ObjectId, ref:'crystals'},
+        ability:{type:mongoose.Schema.Types.ObjectId, ref:'abilities'},
+        equipmentType: {type:[mongoose.Schema.Types.ObjectId], ref:'equipmentTypes'},
+
         detail:{
             type:String,
         },

@@ -8,8 +8,11 @@ const CharacterSchema = new mongoose.Schema(
             type:String,
         },
         job:{
-            type:mongoose.Schema.Types.ObjectId, ref:'job'
+            type:mongoose.Schema.Types.ObjectId, ref:'jobs'
         },
+        img:{
+            type:Object
+        }
     },
 
     {

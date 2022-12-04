@@ -7,7 +7,7 @@ const CrystalSchema = new mongoose.Schema(
         name:{
             type:String,
         },
-        job:{type:[mongoose.Schema.Types.ObjectId], ref:'Crystal'},
+        job:{type:[mongoose.Schema.Types.ObjectId], ref:'jobs'},
         
         img:{
             type:Object
