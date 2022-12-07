@@ -19,7 +19,7 @@ async function createElementServices(req,res){
         return
     }
         element.save()
-        res.json({message:`${element.name} CREATED`})
+        res.json({message:`CREATED ELEMENT NAME = '${element.name}' `})
     }catch(err){
         console.log(err);
         handleHttpError(res,'ERROR_CREATED_ELEMENT',409)

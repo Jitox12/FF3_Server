@@ -1,20 +1,20 @@
 const {check} = require('express-validator')
 const validateResults = require('../../../utils/handleValidator')
 
-const validatorCreateArmor = [
+const validatorEditAbility = [
     check('name')
     .exists()
     .notEmpty()
     .isString(),
-    check('defense')
+    check('damage')
     .exists()
     .notEmpty()
     .isNumeric(),
-    check('passiveAbility')
+    check('element')
     .exists()
     .notEmpty()
     .isMongoId(),
-    check('equipmentType')
+    check('id')
     .exists()
     .notEmpty()
     .isMongoId(),
@@ -24,5 +24,5 @@ const validatorCreateArmor = [
 ]
 
 module.exports = {
-    validatorCreateArmor,
+    validatorEditAbility,
 }

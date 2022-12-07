@@ -22,7 +22,7 @@ async function createEquipmentTypeServices(req,res) {
         equipmentType.save()
         res.json({message: `CREATED EQUIPMENT TYPE NAME = '${equipmentType.name}'`})
         }catch(err){
-            handleHttpError(res,'ERROR_CREATED_MAGIC', 409)
+            handleHttpError(res,'ERROR_CREATED_EQUIPMENT_TYPE', 409)
         }
 }
 

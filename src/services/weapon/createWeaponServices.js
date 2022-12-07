@@ -24,9 +24,9 @@ async function createWeaponServices(req,res){
     weapon.equipmentType = equipmentType
 
         weapon.save()
-        res.json({message:`CREATED NAME = '${weapon.name}' DEFENSE = '${weapon.defense}' DAMAGE = '${weapon.damage}' PASSIVE ABILITY = '${weapon.passiveAbility}' EQUIPMENT TYPE = '${weapon.equipmentType}'`})
+        res.json({message:`CREATED WEAPON NAME = '${weapon.name}' DEFENSE = '${weapon.defense}' DAMAGE = '${weapon.damage}' PASSIVE ABILITY = '${weapon.passiveAbility}' EQUIPMENT TYPE = '${weapon.equipmentType}'`})
     }catch(err){
-        handleHttpError(res,'ERROR_CREATED_ELEMENT',409)
+        handleHttpError(res,'ERROR_CREATED_WEAPON',409)
     }
 }
 

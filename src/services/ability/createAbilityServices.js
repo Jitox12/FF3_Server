@@ -15,13 +15,13 @@ async function createAbilityServices(req,res){
         ability.element = element
 
         const duplicated = await handleDuplicatedError('name',ability.name,Ability)
-
+        
         if(duplicated){
             handleHttpError(res,'DUPLICATED_NAME', 409)
             return
         }
         ability.save()
-        res.json({message: `ABLITY = '${ability.name}' DAMAGE = '${ability.damage}' ELEMENT = '${ability.element}'`})
+        res.json({message: `CREATE ABLITY  NAME = '${ability.name}' DAMAGE = '${ability.damage}' ELEMENT = '${ability.element}'`})
 
     }catch(err){
         console.log(err)

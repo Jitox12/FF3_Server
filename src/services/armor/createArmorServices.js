@@ -9,7 +9,7 @@ async function createArmorServices(req,res){
     try{
     const armor = new Armor()
     req = matchedData(req)
-    const {name, defense, damage, passiveAbility, equipmentType} = req
+    const {name, defense, passiveAbility, equipmentType} = req
    
     armor.name = await toUpperCaseFirstKey(name)
 
@@ -19,15 +19,14 @@ async function createArmorServices(req,res){
         return
     }
     armor.defense = defense
-    armor.damage = damage
     armor.passiveAbility = passiveAbility
     armor.equipmentType = equipmentType
 
         armor.save()
-        res.json({message:`CREATED NAME = '${armor.name}' DEFENSE = '${armor.defense}' DAMAGE = '${armor.damage}' PASSIVE ABILITY = '${armor.passiveAbility}' EQUIPMENT TYPE = '${armor.equipmentType}'`})
+        res.json({message:`CREATED ARMOR NAME = '${armor.name}' DEFENSE = '${armor.defense}' DAMAGE = '${armor.damage}' PASSIVE ABILITY = '${armor.passiveAbility}' EQUIPMENT TYPE = '${armor.equipmentType}'`})
     }catch(err){
         console.log(err);
-        handleHttpError(res,'ERROR_CREATED_ELEMENT',409)
+        handleHttpError(res,'ERROR_CREATED_ARMOR',409)
     }
 }
 

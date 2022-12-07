@@ -7,8 +7,6 @@ const JobSchema = new mongoose.Schema(
         name:{
             type:String,
         },
-        character:{type:mongoose.Schema.Types.ObjectId, ref:'characters'},
-        crystal:{type:mongoose.Schema.Types.ObjectId, ref:'crystals'},
         ability:{type:mongoose.Schema.Types.ObjectId, ref:'abilities'},
         equipmentType: {type:[mongoose.Schema.Types.ObjectId], ref:'equipmentTypes'},
 
@@ -16,7 +14,7 @@ const JobSchema = new mongoose.Schema(
             type:String,
         },
         img:{
-            type:Object
+            type:[Object]
         }
     },
 

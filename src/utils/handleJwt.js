@@ -14,7 +14,6 @@ const sign =  jwt.sign(
     }
 )
 return sign
-
 }
 
 const verifyToken = async (tokenJwt) => {

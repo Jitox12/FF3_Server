@@ -1,7 +1,7 @@
 const Ability = require('../../entities/ability')
 const {matchedData} = require('express-validator')
 const {handleHttpError} = require('../../utils/handleError')
-const handlePaginateConfig = require('../../utils/handlePaginateConfig')
+const {handlePaginateConfig} = require('../../utils/handlePaginateConfig')
 
 async function findAbilityServices(req,res){
     try{

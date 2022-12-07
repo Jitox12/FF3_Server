@@ -18,7 +18,7 @@ async function createMagicTypeServices(req,res){
         return
     }
     magicType.save()
-    res.json({message:`${magicType.name} CREATED`})   
+    res.json({message:`CREATED MAGIC TYPE NAME = '${magicType.name}'`})   
     }catch(err){
         console.log(err)
         handleHttpError(res)

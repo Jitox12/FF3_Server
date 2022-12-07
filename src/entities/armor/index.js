@@ -10,9 +10,6 @@ const ArmorSchema = new mongoose.Schema(
         defense:{
             type:Number,
         },
-        damage:{
-            type:Number,
-        },
         passiveAbility:{type:mongoose.Schema.Types.ObjectId, ref:'passiveAbilities'},
         equipmentType:{type:mongoose.Schema.Types.ObjectId, ref:'equipmentTypes'},
         

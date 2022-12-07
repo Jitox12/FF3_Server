@@ -22,10 +22,10 @@ async function createPassiveAbilityServices(req,res){
         return
     }
         passiveAbility.save()
-        res.json({message:` CREATED NAME ='${passiveAbility.name}' ELEMENT = '${passiveAbility.element}' DAMAGE = '${passiveAbility.damage}' DEFENSE = '${passiveAbility.defense}'`})
+        res.json({message:` CREATED PASSIVE ABILITY NAME ='${passiveAbility.name}' ELEMENT = '${passiveAbility.element}' DAMAGE = '${passiveAbility.damage}' DEFENSE = '${passiveAbility.defense}'`})
     }catch(err){
         console.log(err);
-        handleHttpError(res,'ERROR_CREATED_ELEMENT',409)
+        handleHttpError(res,'ERROR_CREATED_PASSIVE ABILITY',409)
     }
 }
 

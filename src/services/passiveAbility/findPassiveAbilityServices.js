@@ -15,7 +15,7 @@ const findPassiveAbilityServices = async (req,res) => {
 
         res.json(passiveAbilityList)                        
     }catch(err){
-        handleHttpError(res, 'ERROR_FIND_ANY_ELEMENT',404)
+        handleHttpError(res, 'ERROR_FIND_ANY_PASSIVE_ABILITY',404)
     }
 }
 

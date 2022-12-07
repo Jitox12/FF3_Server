@@ -16,7 +16,7 @@ const findCrystalServices = async (req,res) => {
         
     }catch(err){
         console.log(err );
-        handleHttpError(res, 'ERROR_FIND_ANY_CHARACTER',404)
+        handleHttpError(res, 'ERROR_FIND_ANY_CRYSTAL',404)
     }
 }
 

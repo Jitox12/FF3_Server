@@ -15,7 +15,7 @@ const findWeaponServices = async (req,res) => {
 
         res.json(weaponList)
     }catch(err){
-        handleHttpError(res, 'ERROR_FIND_ANY_ARMOR',404)
+        handleHttpError(res, 'ERROR_FIND_ANY_WEAPON',404)
     }
 }
 

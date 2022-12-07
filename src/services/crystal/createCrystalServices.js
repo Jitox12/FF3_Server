@@ -21,7 +21,7 @@ async function createCrystalServices(req,res){
     crystal.job = job
 
         crystal.save()
-        res.json({message:`CREATED NAME = '${crystal.name}' JOB = '${crystal.job}`})
+        res.json({message:`CREATED CRYSTAL NAME = '${crystal.name}' JOB = '${crystal.job}`})
     }catch(err){
         handleHttpError(res,'ERROR_CREATED_CRYSTAL',409)
     }

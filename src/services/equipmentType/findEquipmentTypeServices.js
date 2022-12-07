@@ -11,7 +11,7 @@ async function findEquipmentTypeServices(req,res) {
         res.json(equipmentTypeList)
 
     }catch(err){
-        handleHttpError(res,'ERROR_FIND_ANY_ELEMENT',404)
+        handleHttpError(res,'ERROR_FIND_ANY_EQUIPMENT_TYPE',404)
     }
 }
 

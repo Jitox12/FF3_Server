@@ -6,14 +6,6 @@ const validatorCreateJob = [
     .exists()
     .notEmpty()
     .isString(),
-    check('character')
-    .exists()
-    .notEmpty()
-    .isMongoId(),
-    check('crystal')
-    .exists()
-    .notEmpty()
-    .isMongoId(),
     check('ability')
     .exists()
     .notEmpty()

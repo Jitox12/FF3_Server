@@ -4,6 +4,7 @@ const app = express()
 const bodyParser = require('body-parser')
 const router = require('./routes')
 const dbConnect = require('./config/db/mongo')
+const server = require('./index')
 
 //Inicializador de rutas
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -23,7 +24,9 @@ const corsOptions = {
 }
 
 app.use(cors(corsOptions))
-dbConnect(app)
+
+dbConnect()
+server(app)
 
 app.use(router)
 

@@ -21,7 +21,7 @@ async function createCharacterServices(req,res){
     character.job = job
 
         character.save()
-        res.json({message:`CREATED NAME = '${character.name}' JOB = '${character.job}`})
+        res.json({message:`CREATED CHARACTER NAME = '${character.name}' JOB = '${character.job}`})
     }catch(err){
         handleHttpError(res,'ERROR_CREATED_CHARACTER',409)
     }

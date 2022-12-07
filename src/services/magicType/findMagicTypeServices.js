@@ -12,7 +12,7 @@ async function findMagicTypeServices(req,res){
         res.json(magicTypeList)
 
     }catch(err){
-        handleHttpError(res,'ERROR_FIND_ANY_ELEMENT',404)
+        handleHttpError(res,'ERROR_FIND_ANY_MAGIC_TYPE',404)
     }
 }
 
