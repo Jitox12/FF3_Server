@@ -1,7 +1,7 @@
 const MagicType = require('../../entities/magicType')
 const {matchedData} = require('express-validator')
 const {handleHttpError} = require('../../utils/handleError')
-const handleDuplicatedError = require('../../utils/handleDuplicatedError')
+const {handleDuplicatedError} = require('../../utils/handleDuplicatedError')
 const {toUpperCaseFirstKey} = require('../../utils/handleUpperCase')
 
 async function createMagicTypeServices(req,res){

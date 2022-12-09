@@ -49,8 +49,8 @@ const importData = async() => {
         await entity.insertMany(data[i])
         i++
     }
-    console.log(`Base de datos Poblada`)
 
+    console.log(`Base de datos Poblada`)
     process.exit()
 }
 

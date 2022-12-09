@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "seed": "node src/config/seed/seeder.js",
     "dev": "nodemon src/app.js",
     "test": "npx jest"
   },

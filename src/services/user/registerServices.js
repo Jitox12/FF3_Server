@@ -3,11 +3,10 @@ const {tokenSign} = require('../../utils/handleJwt')
 const {handleHttpError} = require('../../utils/handleError')
 const {encrypt} = require('../../utils/handlePassword')
 const User = require('../../entities/user')
-const handleDuplicatedError = require('../../utils/handleDuplicatedError')
+const {handleDuplicatedError} = require('../../utils/handleDuplicatedError')
 
 const register = async (req,res) => {
     const user = new User()
-    
     try{
     req = matchedData(req)
     

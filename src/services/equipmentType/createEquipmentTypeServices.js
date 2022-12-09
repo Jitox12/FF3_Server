@@ -1,7 +1,7 @@
 const EquipmentType = require('../../entities/equipmentType')
 const {matchedData} = require('express-validator')
 const {handleHttpError} = require('../../utils/handleError')
-const handleDuplicatedError = require('../../utils/handleDuplicatedError')
+const {handleDuplicatedError} = require('../../utils/handleDuplicatedError')
 const {toUpperCaseFirstKey} = require('../../utils/handleUpperCase')
 
 async function createEquipmentTypeServices(req,res) {

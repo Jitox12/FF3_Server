@@ -1,7 +1,7 @@
 const Ability = require('../../entities/ability')
 const {matchedData} = require('express-validator')
 const {handleHttpError} = require('../../utils/handleError')
-const handleDuplicatedError = require('../../utils/handleDuplicatedError')
+const {handleDuplicatedError,handleEditDuplicatedError} = require('../../utils/handleDuplicatedError')
 const {toUpperCaseFirstKey} = require('../../utils/handleUpperCase')
 
 async function editAbilityServices(req,res){
@@ -13,12 +13,15 @@ async function editAbilityServices(req,res){
             damage,
             element
         }
-        const duplicated = await handleDuplicatedError('name',ability.name, Ability)
+        const duplicated  = await handleDuplicatedError('name',ability.name,Ability)
+    const internalDuplicate = await  handleEditDuplicatedError(ability.name,Ability,id)
 
-        if(duplicated) {
-            handleHttpError(res,'DUPLICATED_NAME', 409)
+    if(duplicated){
+        if(!internalDuplicate){
+            handleHttpError(res,'DUPLICATED_NAME',409)
             return
         }
+    }
         
         await Ability.findByIdAndUpdate(id,ability)
 

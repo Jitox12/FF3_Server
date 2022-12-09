@@ -9,4 +9,18 @@ const handleDuplicatedError = async (parameter, value, Instance) =>{
     }
 }
 
-module.exports = handleDuplicatedError
+const handleEditDuplicatedError = async(value,Instance, id) => {
+
+    const values = await Instance.findById(id)
+    const {name} = values
+
+    if(value === name){
+        return true
+    }else{
+        return false
+    }
+}
+module.exports = {
+    handleDuplicatedError,
+    handleEditDuplicatedError
+}

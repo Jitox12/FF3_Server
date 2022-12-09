@@ -2,7 +2,7 @@ const Crystal = require('../../entities/crystal')
 const {matchedData} = require('express-validator')
 const {handleHttpError} = require('../../utils/handleError')
 const {toUpperCaseFirstKey} = require('../../utils/handleUpperCase')
-const handleDuplicatedError = require('../../utils/handleDuplicatedError')
+const {handleDuplicatedError} = require('../../utils/handleDuplicatedError')
 
 async function createCrystalServices(req,res){
   

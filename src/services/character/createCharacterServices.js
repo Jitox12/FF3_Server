@@ -2,7 +2,7 @@ const Character = require('../../entities/character')
 const {matchedData} = require('express-validator')
 const {handleHttpError} = require('../../utils/handleError')
 const {toUpperCaseFirstKey} = require('../../utils/handleUpperCase')
-const handleDuplicatedError = require('../../utils/handleDuplicatedError')
+const {handleDuplicatedError} = require('../../utils/handleDuplicatedError')
 
 async function createCharacterServices(req,res){
   
