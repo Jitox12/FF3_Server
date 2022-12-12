@@ -1,23 +1,24 @@
 const {check} = require('express-validator')
 const validateResults = require('../../../utils/handleValidator')
 
-const validatorCreateCrystal = [
-    check('name')
-    .exists()
-    .notEmpty()
-    .isString(),
+const validatorCreateCharacter_Job = [
     check('job')
     .exists()
     .notEmpty()
     .isMongoId(),
-    check('crystalImage')
+    check('character')
     .exists()
-    .notEmpty(),
+    .notEmpty()
+    .isMongoId(),
+    check('path')
+    .exists()
+    .notEmpty()
+    .isString(),
     (req,res,next)=>{
         validateResults(req,res,next)
     }
 ]
 
 module.exports = {
-    validatorCreateCrystal,
+    validatorCreateCharacter_Job,
 }

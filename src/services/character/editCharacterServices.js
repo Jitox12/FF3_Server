@@ -8,11 +8,10 @@ async function editCharacterServices(req,res){
   
     try{
     req = matchedData(req)
-    const {name, job,id} = req
+    const {name,id} = req
    
     const character = {
         name: await toUpperCaseFirstKey(name),
-        job:job
     }
 
     const duplicated  = await handleDuplicatedError('name',character.name,Character)

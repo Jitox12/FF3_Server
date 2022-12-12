@@ -7,12 +7,14 @@ const {editEquipmentTypeServices} = require('../../services/equipmentType/editEq
 
 const {authMiddleware} = require('../../middlewares/session')
 const {checkRole} = require('../../middlewares/role')
+const imageMiddleware = require('../../middlewares/validators/imageMiddleware') 
+const uploadMiddleware = require('../../middlewares/multer')
 
 const {validatorCreateEquipmentType} = require('../../middlewares/validators/equipmentType/validatorCreateEquipmentType')
 const {validatorFindEquipmentType} = require('../../middlewares/validators/equipmentType/validatorFindEquipmentType')
 const {validatorEditEquipmentType} = require('../../middlewares/validators/equipmentType/validatorEditEquipmetType')
 
-route.post('/create-equipmenttype',[validatorCreateEquipmentType],createEquipmentTypeServices)
+route.post('/create-equipmenttype',[uploadMiddleware.single('file'),imageMiddleware,validatorCreateEquipmentType],createEquipmentTypeServices)
 route.get('/find-equipmenttype',[validatorFindEquipmentType], findEquipmentTypeServices)
 route.put('/edit-equipmenttype/:id',[validatorEditEquipmentType], editEquipmentTypeServices)
 

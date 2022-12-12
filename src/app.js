@@ -24,6 +24,7 @@ const corsOptions = {
 }
 
 app.use(cors(corsOptions))
+app.use(express.static("src"));
 
 dbConnect()
 server(app)

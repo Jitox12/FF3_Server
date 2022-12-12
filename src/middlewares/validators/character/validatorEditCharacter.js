@@ -6,10 +6,6 @@ const validatorEditCharacter = [
     .exists()
     .notEmpty()
     .isString(),
-    check('job')
-    .exists()
-    .notEmpty()
-    .isMongoId(),
     check('id')
     .exists()
     .notEmpty()

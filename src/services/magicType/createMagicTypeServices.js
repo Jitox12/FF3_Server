@@ -9,6 +9,7 @@ async function createMagicTypeServices(req,res){
     req = matchedData(req)
     const{name} = req
     const magicType = new MagicType()
+    console.log(req)
 
     try{
     magicType.name = await toUpperCaseFirstKey(name)

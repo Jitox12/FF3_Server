@@ -9,7 +9,7 @@ async function createCharacterServices(req,res){
     try{
     const character = new Character()
     req = matchedData(req)
-    const {name, job} = req
+    const {name} = req
    
     character.name = await toUpperCaseFirstKey(name)
 
@@ -18,10 +18,9 @@ async function createCharacterServices(req,res){
         handleHttpError(res,'DUPLICATED_NAME',409)
         return
     }
-    character.job = job
 
         character.save()
-        res.json({message:`CREATED CHARACTER NAME = '${character.name}' JOB = '${character.job}`})
+        res.json({message:`CREATED CHARACTER NAME = '${character.name}'`})
     }catch(err){
         handleHttpError(res,'ERROR_CREATED_CHARACTER',409)
     }

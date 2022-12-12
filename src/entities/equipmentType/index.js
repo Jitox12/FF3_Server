@@ -7,6 +7,9 @@ const EquipmentTypeSchema = new mongoose.Schema(
         name:{
             type:String,
         },
+        img:{
+            type:String
+        }
     },
     {
         timestamps:true,

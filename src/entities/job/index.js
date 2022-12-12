@@ -9,13 +9,10 @@ const JobSchema = new mongoose.Schema(
         },
         ability:{type:mongoose.Schema.Types.ObjectId, ref:'abilities'},
         equipmentType: {type:[mongoose.Schema.Types.ObjectId], ref:'equipmentTypes'},
-
+        magic:{type:[mongoose.Schema.Types.ObjectId], ref:'magics'},
         detail:{
             type:String,
         },
-        img:{
-            type:[Object]
-        }
     },
 
     {

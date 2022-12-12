@@ -40,7 +40,6 @@ const users = [{
 const characters = [{
     _id:'638d05563b176382b73f3825',
     name:'Luneth',
-    job:'638d02bc96c03f9a1c117301',
 }]
 
 const crystals = [{
@@ -52,6 +51,7 @@ const jobs = [{
     _id:'638d02bc96c03f9a1c117301',
     name:'Warrior',
     ability:'638f6c77d54a9f4c28b1f5bd',
+    magics: ['638b97491764024ac1bb7268'],
     equipmentTypes:['638bb70f3024df3a47bef115'],
     detail:'Warriors are weapon experts. Their Advance ability allows them to deal even more damage than normal, but they also get hit a lot harder.'
 }]
@@ -74,8 +74,8 @@ const weapons =[{
     name:'Espada',
     damage:10,
     defense:0,
-    passiveAbilities:'638aedf96c9ab71976bf7d0f',
-    equipmentTypes:'638bb70f3024df3a47bef115'
+    passiveAbility:'638aedf96c9ab71976bf7d0f',
+    equipmentType:'638bb70f3024df3a47bef115'
 }]
 
 

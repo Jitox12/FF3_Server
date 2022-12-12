@@ -14,6 +14,10 @@ const validatorCreateJob = [
     .exists()
     .notEmpty()
     .isMongoId(),
+    check('magic')
+    .exists()
+    .notEmpty()
+    .isMongoId(),
     check('detail')
     .exists()
     .notEmpty()

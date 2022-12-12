@@ -5,12 +5,11 @@ const {toUpperCaseFirstKey} = require('../../utils/handleUpperCase')
 const {handleDuplicatedError} = require('../../utils/handleDuplicatedError')
 
 async function createWeaponServices(req,res){
-  
+
     try{
-    const weapon = new Weapon()
     req = matchedData(req)
+    const weapon = new Weapon()
     const {name, defense, damage, passiveAbility, equipmentType} = req
-   
     weapon.name = await toUpperCaseFirstKey(name)
 
     const duplicated  = await handleDuplicatedError('name',weapon.name,Weapon)

@@ -13,9 +13,6 @@ const ArmorSchema = new mongoose.Schema(
         passiveAbility:{type:mongoose.Schema.Types.ObjectId, ref:'passiveAbilities'},
         equipmentType:{type:mongoose.Schema.Types.ObjectId, ref:'equipmentTypes'},
         
-        img:{
-            type:Object
-        }
     },
     {
         timestamps:true,

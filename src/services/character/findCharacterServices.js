@@ -7,11 +7,9 @@ const findCharacterServices = async (req,res) => {
     try{
         req = matchedData(req)
         const {limit, page} = req
-        const values = ['job']
 
-        const paginateConfig = await handlePaginateConfig(values)
 
-        const characterList = await Character.paginate({},{populate:paginateConfig ,limit,page})
+        const characterList = await Character.paginate({},{limit,page})
         res.json(characterList)
         
     }catch(err){

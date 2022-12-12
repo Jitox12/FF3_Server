@@ -1,5 +1,7 @@
 const express = require('express')
 const route = express.Router()
+const uploadMiddleware = require('../../middlewares/multer')
+const imageMiddleware = require('../../middlewares/validators/imageMiddleware')
 
 const {createMagicTypeServices} = require('../../services/magicType/createMagicTypeServices')
 const {findMagicTypeServices} = require('../../services/magicType/findMagicTypeServices')
@@ -12,7 +14,8 @@ const {validatorCreateMagicType} = require('../../middlewares/validators/magicTy
 const {validatorFindMagicType} = require('../../middlewares/validators/magicType/validatorFindMagicType')
 const {validatorEditMagicType} = require('../../middlewares/validators/magicType/validatorEditMagicType')
 
-route.post('/create-magictype',[authMiddleware,checkRole(['admin']),validatorCreateMagicType],createMagicTypeServices)
+
+route.post('/create-magictype',[authMiddleware,checkRole(['admin']),uploadMiddleware.single('file'),imageMiddleware,validatorCreateMagicType],createMagicTypeServices)
 route.get('/find-magictype',[authMiddleware,checkRole(['user','admin']),validatorFindMagicType], findMagicTypeServices)
 route.put('/edit-magictype/:id',[authMiddleware,checkRole(['admin']),validatorEditMagicType], editMagicTypeServices)
 

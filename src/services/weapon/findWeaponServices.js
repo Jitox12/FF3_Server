@@ -1,7 +1,7 @@
 const {matchedData} = require('express-validator')
 const {handleHttpError} = require('../../utils/handleError')
 const Weapon = require('../../entities/weapon')
-const handlePaginateConfig = require('../../utils/handlePaginateConfig')
+const {handlePaginateConfig} = require('../../utils/handlePaginateConfig')
 
 const findWeaponServices = async (req,res) => {
     try{

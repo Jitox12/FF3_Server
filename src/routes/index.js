@@ -16,6 +16,7 @@ const weaponRoutes = require('./weapon')
 const characterRoutes = require('./character')
 const jobRoutes = require('./job')
 const crystalRoutes = require('./crystal')
+const Character_JobRoutes = require('./character_job')
 
 router.use(`/api/${API_VERSION}`, userRoutes)
 router.use(`/api/${API_VERSION}`, elementRoutes)
@@ -29,5 +30,6 @@ router.use(`/api/${API_VERSION}`, weaponRoutes)
 router.use(`/api/${API_VERSION}`, characterRoutes)
 router.use(`/api/${API_VERSION}`, jobRoutes)
 router.use(`/api/${API_VERSION}`, crystalRoutes)
+router.use(`/api/${API_VERSION}`, Character_JobRoutes)
 
 module.exports = router

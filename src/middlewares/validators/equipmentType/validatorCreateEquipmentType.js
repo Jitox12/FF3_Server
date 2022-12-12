@@ -6,7 +6,11 @@ const validatorCreateEquipmentType = [
     .exists()
     .notEmpty()
     .isString(),
-
+    check('path')
+    .exists()
+    .notEmpty()
+    .isString(),
+  
     (req,res,next)=>{
         validateResults(req,res,next)
     }

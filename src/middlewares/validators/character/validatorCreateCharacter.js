@@ -6,10 +6,6 @@ const validatorCreateCharacter = [
     .exists()
     .notEmpty()
     .isString(),
-    check('job')
-    .exists()
-    .notEmpty()
-    .isMongoId(),
     (req,res,next)=>{
         validateResults(req,res,next)
     }

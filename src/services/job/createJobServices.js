@@ -8,7 +8,7 @@ async function createJobServices(req,res){
     try{
     const job = new Job()
     req = matchedData(req)
-    const {name, ability, detail,equipmentType} = req
+    const {name, ability, detail,equipmentType,magic} = req
 
     job.name = await toUpperCaseFirstKey(name)
     const duplicated = await handleDuplicatedError('name', job.name, Job)
@@ -20,6 +20,7 @@ async function createJobServices(req,res){
     job.ability = ability
     job.detail = detail
     job.equipmentType = equipmentType
+    job.magic = magic
 
     job.save()
     res.json({message: `CREATED JOB NAME = '${job.name}' `})

@@ -1,18 +1,26 @@
 const multer = require('multer')
+const {handleHttpError} = require('../../utils/handleError')
 
-const storage = multer.diskStorage({
-    destination: function(req, file, cb){
-        const pathStorage = `./src/public`
-        cb(null, pathStorage)
-    },
-    filename:function(req,file,cb){
-        //mi cv.pdf mi-foto.png mi-video.mp4
-        const ext = file.originalname.split('.').pop()
-        const filename= `file-${Date.now()}.${ext}` //TODO unix 202201203.ext
-        cb(null, filename)
+const uploadFile = (req,res,next) => {
+    try{
+    const storage = multer.diskStorage({
+      destination: './src/public',
+      filename: function (_req, file, cb) {
+        var uniqueSuffix = file.originalname.slice(
+          file.originalname.lastIndexOf('.')
+        )
+        cb(null,+ Date.now() + '' + uniqueSuffix)
+      },
+    })
+
+    const upload = multer({ storage: storage })
+    return upload
+    
+    }catch(err){
+            handleHttpError(res,'FILE_ERROR', 400)
     }
-})
+  }
 
-const uploadMiddleware = multer({storage})
+  const uploadMiddleware = uploadFile()
 
-module.exports = uploadMiddleware
+  module.exports = uploadMiddleware
